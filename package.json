@@ -36,7 +36,7 @@
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && sudo rm -r /var/www/dms-admin/ && sudo cp -r ~/code/dms-admin/build/ /var/www/dms-admin/"
+    "deploy": "npm run build && sudo rm -r /var/www/dms-inspector/ && sudo cp -r ~/code/dms-inspector/build/ /var/www/dms-inspector/"
   },
   "eslintConfig": {
     "extends": [
