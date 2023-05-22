@@ -1,35 +1,10 @@
-// assets
-import ReactCountryFlag from 'react-country-flag';
+import CountryFlag from '../ui-component/CountryFlag';
 
 // constant
 const icons = {
-  FlagMY: (
-    <ReactCountryFlag
-      countryCode="MY"
-      aria-label="Malaysia"
-      style={{
-        fontSize: '1.75em',
-      }}
-    />
-  ),
-  FlagID: (
-    <ReactCountryFlag
-      countryCode="ID"
-      aria-label="Indonesia"
-      style={{
-        fontSize: '1.75em',
-      }}
-    />
-  ),
-  FlagIN: (
-    <ReactCountryFlag
-      countryCode="IN"
-      aria-label="India"
-      style={{
-        fontSize: '1.75em',
-      }}
-    />
-  ),
+  FlagMY: <CountryFlag countryCode="MY" />,
+  FlagID: <CountryFlag countryCode="ID" />,
+  FlagIN: <CountryFlag countryCode="IN" />,
 };
 
 // ==============================|| EXTRA PAGES MENU ITEMS ||============================== //

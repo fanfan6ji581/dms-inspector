@@ -1,4 +1,3 @@
-// assets
 import PublicIcon from '@mui/icons-material/Public';
 import {
   Avatar,
@@ -13,19 +12,15 @@ import {
   Popper,
   Typography,
 } from '@mui/material';
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import { useEffect, useRef, useState } from 'react';
-import ReactCountryFlag from 'react-country-flag';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-// project imports
-import MainCard from 'ui-component/cards/MainCard';
-import Transitions from 'ui-component/extended/Transitions';
 
 import { openMenuItem } from '../../../../reducers/layoutSlice';
-
-// third-party
+import MainCard from '../../../../ui-component/cards/MainCard';
+import CountryFlag from '../../../../ui-component/CountryFlag';
+import Transitions from '../../../../ui-component/extended/Transitions';
 
 // ==============================|| PROFILE MENU ||============================== //
 
@@ -122,7 +117,7 @@ const CountrySection = () => {
             onClick={handleToggle}
             color="inherit"
           >
-            {country ? <ReactCountryFlag countryCode={country} /> : <PublicIcon />}
+            {country ? <CountryFlag countryCode={country} /> : <PublicIcon />}
           </Avatar>
         </ButtonBase>
       </Box>
@@ -172,13 +167,7 @@ const CountrySection = () => {
                         onClick={(event) => handleListItemClick(event, 0, '/my')}
                       >
                         <ListItemIcon>
-                          <ReactCountryFlag
-                            countryCode="MY"
-                            aria-label="Malaysia"
-                            style={{
-                              fontSize: '1.75em',
-                            }}
-                          />
+                          <CountryFlag countryCode="MY" />
                         </ListItemIcon>
                         <ListItemText primary={<Typography variant="body2">Malaysia</Typography>} />
                       </ListItemButton>
@@ -188,13 +177,7 @@ const CountrySection = () => {
                         onClick={(event) => handleListItemClick(event, 1, '/id')}
                       >
                         <ListItemIcon>
-                          <ReactCountryFlag
-                            countryCode="ID"
-                            aria-label="Indonesia"
-                            style={{
-                              fontSize: '1.75em',
-                            }}
-                          />
+                          <CountryFlag countryCode="ID" />
                         </ListItemIcon>
                         <ListItemText primary={<Typography variant="body2">Indonesia</Typography>} />
                       </ListItemButton>
@@ -204,13 +187,7 @@ const CountrySection = () => {
                         onClick={(event) => handleListItemClick(event, 2, '/in')}
                       >
                         <ListItemIcon>
-                          <ReactCountryFlag
-                            countryCode="IN"
-                            aria-label="India"
-                            style={{
-                              fontSize: '1.75em',
-                            }}
-                          />
+                          <CountryFlag countryCode="IN" />
                         </ListItemIcon>
                         <ListItemText primary={<Typography variant="body2">India</Typography>} />
                       </ListItemButton>
