@@ -24,7 +24,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { login, logout, storeToken } from '../../../reducers/authSlice';
-import { showSnackbar } from '../../../reducers/snackbarSlice';
+import { showSnackbar } from '../../../reducers/layoutSlice';
 import AnimateButton from '../../../ui-component/extended/AnimateButton';
 import axios from '../../../utils/axios';
 

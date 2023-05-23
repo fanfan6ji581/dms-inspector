@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 
 import { inspectorS, login } from '../../../reducers/authSlice';
-import { showSnackbar } from '../../../reducers/snackbarSlice';
+import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
 const Page = () => {
@@ -26,16 +26,17 @@ const Page = () => {
   });
 
   const onSave = async (values, { resetForm }) => {
-    // Handle form submission
+    dispatch(showLoading());
     try {
       const { data } = await axios.put('/account/profile', values);
       // update login inspector name
-      dispatch(login(data.inspector));
+      dispatch(login(data));
       dispatch(showSnackbar('Profile updated successful', { severity: 'success' }));
     } catch (err) {
       const { data } = err.response;
       dispatch(showSnackbar(data.error.msg, { severity: 'error' }));
     }
+    dispatch(hideLoading());
   };
 
   return (

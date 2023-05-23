@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
-import { showSnackbar } from '../../../reducers/snackbarSlice';
+import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
 const Page = () => {
@@ -27,7 +27,7 @@ const Page = () => {
   });
 
   const onSave = async (values, { resetForm }) => {
-    // Handle form submission
+    dispatch(showLoading());
     try {
       const { data } = await axios.post('/account/change-password', values);
       resetForm();
@@ -36,6 +36,7 @@ const Page = () => {
       const { data } = err.response;
       dispatch(showSnackbar(data.error.msg, { severity: 'error' }));
     }
+    dispatch(hideLoading());
   };
 
   return (

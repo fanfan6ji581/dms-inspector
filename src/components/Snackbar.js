@@ -1,11 +1,10 @@
 import { Snackbar, useMediaQuery } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { useTheme } from '@mui/material/styles';
-// SnackbarComponent.js
 import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { hideSnackbar } from '../reducers/snackbarSlice';
+import { hideSnackbar, snackbarS } from '../reducers/layoutSlice';
 
 const Alert = forwardRef((props, ref) => {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -14,7 +13,7 @@ const Alert = forwardRef((props, ref) => {
 const SnackbarComponent = () => {
   const dispatch = useDispatch();
   const theme = useTheme();
-  const snackbar = useSelector((state) => state.snackbar);
+  const snackbar = useSelector(snackbarS);
   const matchDownMd = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClose = () => {
@@ -23,9 +22,9 @@ const SnackbarComponent = () => {
 
   return (
     <>
-      {snackbar.open && (
+      {snackbar?.open && (
         <Snackbar
-          open={snackbar.open}
+          open={snackbar?.open}
           anchorOrigin={{
             vertical: snackbar?.options?.vertical || 'top',
             horizontal: snackbar?.options?.horizontal || 'center',
@@ -38,7 +37,7 @@ const SnackbarComponent = () => {
           {...snackbar.options}
         >
           <Alert severity={snackbar?.options?.severity} sx={{ width: '100%' }}>
-            {snackbar.message}
+            {snackbar?.message}
           </Alert>
         </Snackbar>
       )}
