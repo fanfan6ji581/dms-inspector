@@ -1,7 +1,8 @@
-import LinearProgress from '@mui/material/LinearProgress';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import LinearProgress from '@mui/material/LinearProgress';
 
 import SnackbarComponent from '../components/Snackbar';
 import { login } from '../reducers/authSlice';
@@ -20,7 +21,7 @@ const AuthProvider = ({ children }) => {
     const auth = async () => {
       // Check if the user is already authenticated (e.g., using a token stored in local storage)
       try {
-        const { data } = await axios.get(`/auth/info`);
+        const { data } = await axios.get('/auth/info');
         dispatch(login(data));
       } catch (error) {
         console.log(error);

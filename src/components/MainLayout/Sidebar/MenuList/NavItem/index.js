@@ -1,15 +1,16 @@
 // assets
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
-// material-ui
-import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 import { forwardRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-import { openMenuItem, openedMenuItemsS, showSideBar } from '../../../../../reducers/layoutSlice';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
+// material-ui
+import { useTheme } from '@mui/material/styles';
+
+import { openedMenuItemsS, openMenuItem, removeOpenMenuItem, showSideBar } from '../../../../../reducers/layoutSlice';
 
 // ==============================|| SIDEBAR MENU LIST ITEMS ||============================== //
 
@@ -56,12 +57,15 @@ const NavItem = ({ item, level }) => {
 
   // active menu item on page load
   useEffect(() => {
-    const currentIndex = document.location.pathname
-      .toString()
-      .split('/')
-      .findIndex((id) => id === item.id);
-    if (currentIndex > -1) {
+    // const currentIndex = document.location.pathname
+    //   .toString()
+    //   .split('/')
+    //   .findIndex((id) => id === item.id);
+
+    if (location.pathname === item.url) {
       dispatch(openMenuItem(item.id));
+    } else {
+      dispatch(removeOpenMenuItem(item.id));
     }
     // eslint-disable-next-line
   }, [location]);
@@ -71,7 +75,7 @@ const NavItem = ({ item, level }) => {
       {...listItemProps}
       disabled={item.disabled}
       sx={{
-        borderRadius: `12px`,
+        borderRadius: '12px',
         mb: 0.5,
         alignItems: 'flex-start',
         backgroundColor: level > 1 ? 'transparent !important' : 'inherit',

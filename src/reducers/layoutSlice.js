@@ -19,6 +19,12 @@ const layoutSlice = createSlice({
     openMenuItem: (state, action) => {
       state.openedMenuItems = [action.payload];
     },
+    removeOpenMenuItem: (state, action) => {
+      const index = state.openedMenuItems.indexOf(action.payload);
+      if (index > -1) {
+        state.openedMenuItems.splice(index, 1);
+      }
+    },
     showSideBar: (state, action) => {
       state.isSidebarShown = action.payload;
     },
@@ -26,11 +32,16 @@ const layoutSlice = createSlice({
       state.isSidebarShown = !state.isSidebarShown;
     },
     showLoading: (state, action) => {
-      state.loadingQueue.push(action?.payload || '');
+      const id = action?.payload || '';
+      state.loadingQueue.push(id);
       state.isLoadingShown = state.loadingQueue.length > 0;
     },
-    hideLoading: (state) => {
-      state.loadingQueue.pop();
+    hideLoading: (state, action) => {
+      const id = action?.payload || '';
+      const payloadIndex = state.loadingQueue.indexOf(id);
+      if (payloadIndex !== -1) {
+        state.loadingQueue.splice(payloadIndex, 1);
+      }
       state.isLoadingShown = state.loadingQueue.length > 0;
     },
     showSnackbar: {
@@ -56,6 +67,15 @@ export const openedMenuItemsS = (state) => state.layout.openedMenuItems;
 export const isSidebarShownS = (state) => state.layout.isSidebarShown;
 export const isLoadingShownS = (state) => state.layout.isLoadingShown;
 export const snackbarS = (state) => state.layout.snackbar;
-export const { openMenuItem, showSideBar, toggleSideBar, showLoading, hideLoading, showSnackbar, hideSnackbar } =
-  layoutSlice.actions;
+export const isLoadingS = (item) => (state) => state.layout.loadingQueue.includes(item);
+export const {
+  openMenuItem,
+  removeOpenMenuItem,
+  showSideBar,
+  toggleSideBar,
+  showLoading,
+  hideLoading,
+  showSnackbar,
+  hideSnackbar,
+} = layoutSlice.actions;
 export default layoutSlice.reducer;

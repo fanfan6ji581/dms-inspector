@@ -1,8 +1,9 @@
+import { forwardRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Snackbar, useMediaQuery } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { useTheme } from '@mui/material/styles';
-import { forwardRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { hideSnackbar, snackbarS } from '../reducers/layoutSlice';
 

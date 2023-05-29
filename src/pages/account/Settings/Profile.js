@@ -1,13 +1,14 @@
-import { Button, Grid, TextField } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+
+import { Button, Grid, TextField } from '@mui/material';
 
 import { inspectorS, login } from '../../../reducers/authSlice';
 import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
-const Page = () => {
+const Profile = () => {
   const dispatch = useDispatch();
   const inspector = useSelector(inspectorS);
 
@@ -116,4 +117,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Profile;

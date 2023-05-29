@@ -1,13 +1,15 @@
-import { Box, Drawer, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import { BrowserView, MobileView } from 'react-device-detect';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Box, Drawer, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+
 import { drawerWidth } from '../../../app/constants';
 import { isSidebarShownS, showSideBar } from '../../../reducers/layoutSlice';
 import LogoSection from '../LogoSection';
+
 import MenuList from './MenuList';
 
 const Sidebar = ({ window }) => {

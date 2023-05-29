@@ -1,11 +1,13 @@
+import * as React from 'react';
+import PropTypes from 'prop-types';
+
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import { Box, Tab, Tabs, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
-import * as React from 'react';
 
 import MainCard from '../../../ui-component/cards/MainCard';
+
 import ChangePassword from './ChangePassword';
 import Profile from './Profile';
 

@@ -1,8 +1,9 @@
+import LogoImg from 'assets/img/logo.png';
+import { Link } from 'react-router-dom';
+
 import { Box, Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import LogoImg from 'assets/img/logo.png';
-import { Link } from 'react-router-dom';
 
 import AuthLogin from '../auth-forms/AuthLogin';
 import AuthCardWrapper from '../AuthCardWrapper';
@@ -58,9 +59,6 @@ const Login = () => {
               </AuthCardWrapper>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
-          {/* <AuthFooter /> */}
         </Grid>
       </Grid>
     </AuthWrapper1>

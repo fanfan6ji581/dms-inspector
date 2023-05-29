@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
+
 import MuiAvatar from '@mui/material/Avatar';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 
 // ==============================|| AVATAR ||============================== //
 
@@ -14,10 +15,10 @@ const Avatar = ({ color, outline, size, sx, ...others }) => {
       bgcolor: `${color}.main`,
     };
   const outlineSX = outline && {
-    color: color ? `${color}.main` : `primary.main`,
+    color: color ? `${color}.main` : 'primary.main',
     bgcolor: theme.palette.background.paper,
     border: '2px solid',
-    borderColor: color ? `${color}.main` : `primary.main`,
+    borderColor: color ? `${color}.main` : 'primary.main',
   };
   let sizeSX = {};
   switch (size) {

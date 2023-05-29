@@ -31,6 +31,8 @@
   "scripts": {
     "dev": "PORT=8083 react-scripts start",
     "format": "prettier --write \"src/**/*.js\"",
+    "lint": "npx eslint src/ --fix",
+    "lint-debug": "npx eslint src/ --fix --debug",
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
@@ -56,9 +58,10 @@
     ]
   },
   "devDependencies": {
-    "import-sort-style-module": "^6.0.0",
-    "prettier": "^2.8.8",
-    "prettier-plugin-import-sort": "^0.0.7"
+    "eslint": "^8.41.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^2.8.8"
   },
   "importSort": {
     ".js, .jsx, .ts, .tsx": {

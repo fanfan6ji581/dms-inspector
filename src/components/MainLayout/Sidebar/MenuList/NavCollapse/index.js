@@ -1,4 +1,8 @@
 // assets
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router';
+
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 // import { IconChevronDown, IconChevronUp } from '@tabler/icons';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -6,9 +10,6 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 
 // project imports
 import NavItem from '../NavItem';
@@ -87,7 +88,7 @@ const NavCollapse = ({ menu, level }) => {
     <>
       <ListItemButton
         sx={{
-          borderRadius: `12px`,
+          borderRadius: '12px',
           mb: 0.5,
           alignItems: 'flex-start',
           backgroundColor: level > 1 ? 'transparent !important' : 'inherit',

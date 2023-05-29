@@ -1,3 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import PublicIcon from '@mui/icons-material/Public';
 import {
   Avatar,
@@ -13,9 +17,6 @@ import {
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import { openMenuItem } from '../../../../reducers/layoutSlice';
 import MainCard from '../../../../ui-component/cards/MainCard';
@@ -68,15 +69,15 @@ const CountrySection = () => {
   }, [open]);
 
   useEffect(() => {
-    if (location.pathname.toLowerCase().startsWith('/my')) {
+    if (location.pathname.toLowerCase().startsWith('/malaysia')) {
       setCountry('MY');
       dispatch(openMenuItem('my'));
       setSelectedIndex(0);
-    } else if (location.pathname.toLowerCase().startsWith('/id')) {
+    } else if (location.pathname.toLowerCase().startsWith('/indonesia')) {
       setCountry('ID');
       dispatch(openMenuItem('id'));
       setSelectedIndex(1);
-    } else if (location.pathname.toLowerCase().startsWith('/in')) {
+    } else if (location.pathname.toLowerCase().startsWith('/india')) {
       setCountry('IN');
       dispatch(openMenuItem('in'));
       setSelectedIndex(2);
@@ -162,7 +163,7 @@ const CountrySection = () => {
                       }}
                     >
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 0}
                         onClick={(event) => handleListItemClick(event, 0, '/my')}
                       >
@@ -172,7 +173,7 @@ const CountrySection = () => {
                         <ListItemText primary={<Typography variant="body2">Malaysia</Typography>} />
                       </ListItemButton>
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 1}
                         onClick={(event) => handleListItemClick(event, 1, '/id')}
                       >
@@ -182,7 +183,7 @@ const CountrySection = () => {
                         <ListItemText primary={<Typography variant="body2">Indonesia</Typography>} />
                       </ListItemButton>
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 2}
                         onClick={(event) => handleListItemClick(event, 2, '/in')}
                       >

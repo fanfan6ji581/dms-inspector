@@ -1,14 +1,16 @@
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { AppBar, Box, Toolbar, useMediaQuery } from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
-import navigation from 'menu-items';
 import { useEffect } from 'react';
+import navigation from 'menu-items';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import Breadcrumbs from 'ui-component/extended/Breadcrumbs';
 
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { AppBar, Box, LinearProgress, Toolbar, useMediaQuery } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+
 import { drawerWidth } from '../../app/constants';
 import { isSidebarShownS, showSideBar, toggleSideBar } from '../../reducers/layoutSlice';
+
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -35,8 +37,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
       marginLeft: 10,
       marginRight: 10,
       padding: 10,
-      // width: `calc(100% - ${drawerWidth}px)`,
-      width: `100%`,
+      width: 'calc(100% - 20px)',
     },
   }),
   ...(open && {
@@ -77,33 +78,35 @@ const MainLayout = () => {
   // }, [matchDownMd]);
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      {/* header */}
-      <AppBar
-        enableColorOnDark
-        position="fixed"
-        color="inherit"
-        elevation={0}
-        sx={{
-          bgcolor: theme.palette.background.default,
-          transition: isSidebarShown ? theme.transitions.create('width') : 'none',
-        }}
-      >
-        <Toolbar>
-          <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
-        </Toolbar>
-      </AppBar>
+    <>
+      <Box sx={{ display: 'flex' }}>
+        {/* header */}
+        <AppBar
+          enableColorOnDark
+          position="fixed"
+          color="inherit"
+          elevation={0}
+          sx={{
+            bgcolor: theme.palette.background.default,
+            transition: isSidebarShown ? theme.transitions.create('width') : 'none',
+          }}
+        >
+          <Toolbar>
+            <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
+          </Toolbar>
+        </AppBar>
 
-      {/* drawer */}
-      <Sidebar />
+        {/* drawer */}
+        <Sidebar />
 
-      {/* main content */}
-      <Main theme={theme} open={isSidebarShown}>
-        {/* breadcrumb */}
-        {/* <Breadcrumbs separator={ChevronRightIcon} navigation={navigation} icon title rightAlign /> */}
-        <Outlet />
-      </Main>
-    </Box>
+        {/* main content */}
+        <Main theme={theme} open={isSidebarShown}>
+          {/* breadcrumb */}
+          {/* <Breadcrumbs separator={ChevronRightIcon} navigation={navigation} icon title rightAlign /> */}
+          <Outlet />
+        </Main>
+      </Box>
+    </>
   );
 };
 

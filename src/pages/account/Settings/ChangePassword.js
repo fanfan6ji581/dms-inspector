@@ -1,12 +1,13 @@
-import { Button, Grid, TextField } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
+import { Button, Grid, TextField } from '@mui/material';
+
 import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
-const Page = () => {
+const ChangePassword = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -104,4 +105,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ChangePassword;

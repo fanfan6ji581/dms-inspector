@@ -40,7 +40,7 @@ const pages = {
           id: 'id',
           title: 'Coming soon',
           type: 'item',
-          url: '/id',
+          url: '/indonesia',
           // target: true
         },
       ],

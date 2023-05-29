@@ -1,4 +1,12 @@
 // assets
+import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+// project imports
+import MainCard from 'ui-component/cards/MainCard';
+import Transitions from 'ui-component/extended/Transitions';
+
 import BusinessIcon from '@mui/icons-material/Business';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -20,13 +28,6 @@ import {
 } from '@mui/material';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-// project imports
-import MainCard from 'ui-component/cards/MainCard';
-import Transitions from 'ui-component/extended/Transitions';
 
 import { inspectorS, logout } from '../../../../reducers/authSlice';
 
@@ -175,7 +176,7 @@ const ProfileSection = () => {
                       }}
                     >
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 0}
                         onClick={(event) => handleListItemClick(event, 0, '/cooperate/settings')}
                       >
@@ -185,7 +186,7 @@ const ProfileSection = () => {
                         <ListItemText primary={<Typography variant="body2">Cooperate Settings</Typography>} />
                       </ListItemButton>
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 1}
                         onClick={(event) => handleListItemClick(event, 1, '/account/settings')}
                       >
@@ -195,7 +196,7 @@ const ProfileSection = () => {
                         <ListItemText primary={<Typography variant="body2">Account Settings</Typography>} />
                       </ListItemButton>
                       <ListItemButton
-                        sx={{ borderRadius: `12px` }}
+                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 4}
                         onClick={handleLogout}
                       >

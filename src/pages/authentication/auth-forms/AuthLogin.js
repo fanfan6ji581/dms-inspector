@@ -1,4 +1,11 @@
 // assets
+import { useEffect, useState } from 'react';
+import { Formik } from 'formik';
+import useScriptRef from 'hooks/useScriptRef';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
+
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
@@ -16,12 +23,6 @@ import {
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Formik } from 'formik';
-import useScriptRef from 'hooks/useScriptRef';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
 
 import { login, logout, storeToken } from '../../../reducers/authSlice';
 import { showSnackbar } from '../../../reducers/layoutSlice';

@@ -1,12 +1,12 @@
-import './index.css';
-
-import { createBrowserHistory } from 'history';
 import React from 'react';
+import { createBrowserHistory } from 'history';
 import ReactDOM from 'react-dom/client';
 import ReactGA from 'react-ga';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import './index.css';
 
 ReactGA.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
 

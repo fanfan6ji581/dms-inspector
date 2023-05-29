@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
+
 import { Divider, List, Typography } from '@mui/material';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 
 import NavCollapse from '../NavCollapse';
 // project imports

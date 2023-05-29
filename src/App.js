@@ -1,10 +1,9 @@
-import 'assets/scss/style.scss';
-
-import { CssBaseline } from '@mui/material';
-import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import themes from 'themes';
+
+import { CssBaseline } from '@mui/material';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
 import { store } from './app/store';
 import AuthLayout from './components/AuthLayout';
@@ -18,6 +17,8 @@ import IdnPage from './pages/idn/Index';
 import IndPage from './pages/ind/Index';
 import IndexPage from './pages/Index';
 import MysPage from './pages/mys/Index';
+
+import 'assets/scss/style.scss';
 
 const routes = (
   <>

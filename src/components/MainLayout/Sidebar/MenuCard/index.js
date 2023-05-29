@@ -1,4 +1,6 @@
 // assets
+import PropTypes from 'prop-types';
+
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import {
   Avatar,
@@ -6,16 +8,15 @@ import {
   CardContent,
   Grid,
   LinearProgress,
+  linearProgressClasses,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Typography,
-  linearProgressClasses,
 } from '@mui/material';
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 
 // styles
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
