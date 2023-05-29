@@ -1,11 +1,7 @@
-import { useEffect } from 'react';
-import navigation from 'menu-items';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import Breadcrumbs from 'ui-component/extended/Breadcrumbs';
 
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { AppBar, Box, LinearProgress, Toolbar, useMediaQuery } from '@mui/material';
+import { AppBar, Box, Toolbar, useMediaQuery } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 
 import { drawerWidth } from '../../app/constants';
@@ -101,8 +97,6 @@ const MainLayout = () => {
 
         {/* main content */}
         <Main theme={theme} open={isSidebarShown}>
-          {/* breadcrumb */}
-          {/* <Breadcrumbs separator={ChevronRightIcon} navigation={navigation} icon title rightAlign /> */}
           <Outlet />
         </Main>
       </Box>
