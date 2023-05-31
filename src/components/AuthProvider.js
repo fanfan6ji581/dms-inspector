@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import LinearProgress from '@mui/material/LinearProgress';
 
 import SnackbarComponent from '../components/Snackbar';
-import { login } from '../reducers/authSlice';
+import { login, storeToken } from '../reducers/authSlice';
 import { hideLoading, isLoadingShownS, showLoading } from '../reducers/layoutSlice';
 import axios from '../utils/axios';
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const isLoadingShown = useSelector(isLoadingShownS);
+  const queryParams = new URLSearchParams(location.search);
+  const token = queryParams.get('token');
 
   useEffect(() => {
+    // update local storage
+    if (token) {
+      dispatch(storeToken(token));
+    }
+
     dispatch(showLoading());
     // Simulating asynchronous authentication check
     const auth = async () => {
@@ -24,7 +32,6 @@ const AuthProvider = ({ children }) => {
         const { data } = await axios.get('/auth/info');
         dispatch(login(data));
       } catch (error) {
-        console.log(error);
         navigate('/login');
       }
       setIsLoading(false);
@@ -32,7 +39,7 @@ const AuthProvider = ({ children }) => {
     };
 
     auth();
-  }, [dispatch, navigate, axios]);
+  }, []);
 
   return (
     <>
