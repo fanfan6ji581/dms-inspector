@@ -100,7 +100,7 @@ Transitions.propTypes = {
 
 Transitions.defaultProps = {
   type: 'grow',
-  position: 'top-left',
+  position: 'top-right',
   direction: 'up',
 };
 
