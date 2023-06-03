@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { Button, Grid, TextField } from '@mui/material';
 
 import { inspectorS, login } from '../../../reducers/authSlice';
-import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
+import { hideLoading, showLoading, showMessage } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
 const Profile = () => {
@@ -32,10 +32,10 @@ const Profile = () => {
       const { data } = await axios.put('/account/profile', values);
       // update login inspector name
       dispatch(login(data));
-      dispatch(showSnackbar('Profile updated successful', { severity: 'success' }));
+      dispatch(showMessage('Profile updated successful'));
     } catch (err) {
-      const { data } = err.response;
-      dispatch(showSnackbar(data.error.msg, { severity: 'error' }));
+      console.error(err);
+      dispatch(showMessage(err.response?.data?.error?.msg || 'An error occurred', 'error'));
     }
     dispatch(hideLoading());
   };

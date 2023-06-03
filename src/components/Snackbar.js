@@ -1,21 +1,12 @@
-import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Snackbar, useMediaQuery } from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
-import { useTheme } from '@mui/material/styles';
+import { Alert, Snackbar } from '@mui/material';
 
 import { hideSnackbar, snackbarS } from '../reducers/layoutSlice';
 
-const Alert = forwardRef((props, ref) => {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 const SnackbarComponent = () => {
   const dispatch = useDispatch();
-  const theme = useTheme();
   const snackbar = useSelector(snackbarS);
-  const matchDownMd = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClose = () => {
     dispatch(hideSnackbar());
@@ -37,7 +28,7 @@ const SnackbarComponent = () => {
           }}
           {...snackbar.options}
         >
-          <Alert severity={snackbar?.options?.severity} sx={{ width: '100%' }}>
+          <Alert variant="filled" severity={snackbar?.options?.severity || 'info'} sx={{ width: '100%' }}>
             {snackbar?.message}
           </Alert>
         </Snackbar>

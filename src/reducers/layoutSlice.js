@@ -54,6 +54,16 @@ const layoutSlice = createSlice({
       },
       prepare: (message, options = {}) => ({ payload: { message, options } }),
     },
+    showMessage: {
+      reducer: (state, action) => {
+        state.snackbar = {
+          message: action.payload.message,
+          options: { severity: action.payload.severity, ...action.payload.options },
+          open: true,
+        };
+      },
+      prepare: (message, severity = 'success', options = {}) => ({ payload: { message, severity, options } }),
+    },
     hideSnackbar: (state) => {
       state.snackbar = {
         message: '',
@@ -77,5 +87,6 @@ export const {
   hideLoading,
   showSnackbar,
   hideSnackbar,
+  showMessage,
 } = layoutSlice.actions;
 export default layoutSlice.reducer;

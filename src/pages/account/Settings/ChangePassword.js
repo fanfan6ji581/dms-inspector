@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { Button, Grid, TextField } from '@mui/material';
 
-import { hideLoading, showLoading, showSnackbar } from '../../../reducers/layoutSlice';
+import { hideLoading, showLoading, showMessage } from '../../../reducers/layoutSlice';
 import axios from '../../../utils/axios';
 
 const ChangePassword = () => {
@@ -32,10 +32,10 @@ const ChangePassword = () => {
     try {
       const { data } = await axios.post('/account/change-password', values);
       resetForm();
-      dispatch(showSnackbar('Password changed successful', { severity: 'success' }));
+      dispatch(showMessage('Password changed successful'));
     } catch (err) {
-      const { data } = err.response;
-      dispatch(showSnackbar(data.error.msg, { severity: 'error' }));
+      console.error(err);
+      dispatch(showMessage(err.response?.data?.error?.msg || 'An error occurred', 'error'));
     }
     dispatch(hideLoading());
   };

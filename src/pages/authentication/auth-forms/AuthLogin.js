@@ -25,7 +25,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 
 import { login, logout, storeToken } from '../../../reducers/authSlice';
-import { showSnackbar } from '../../../reducers/layoutSlice';
+import { showMessage } from '../../../reducers/layoutSlice';
 import AnimateButton from '../../../ui-component/extended/AnimateButton';
 import axios from '../../../utils/axios';
 
@@ -75,7 +75,7 @@ const Login = ({ ...others }) => {
             // store the token in local storage
             dispatch(storeToken(data.token));
             dispatch(login(data.inspector));
-            dispatch(showSnackbar(`Welcome back, ${data.inspector.name}`, { severity: 'success' }));
+            dispatch(showMessage(`Welcome back, ${data.inspector.name}`));
             navigate(locationState?.url || '/home');
           } catch (err) {
             const { data } = err.response;
@@ -84,7 +84,8 @@ const Login = ({ ...others }) => {
               setErrors({ submit: data.error.msg });
               setSubmitting(false);
             }
-            dispatch(showSnackbar(data.error.msg, { severity: 'error' }));
+            console.error(err);
+            dispatch(showMessage(err.response?.data?.error?.msg || 'An error occurred', 'error'));
           }
         }}
       >
