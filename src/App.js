@@ -17,6 +17,7 @@ import IdnPage from './pages/idn/Index';
 import IndPage from './pages/ind/Index';
 import IndexPage from './pages/Index';
 import MysPage from './pages/mys/Index';
+import NotFoundPage from './pages/NotFoundPage';
 
 import 'assets/scss/style.scss';
 
@@ -36,6 +37,7 @@ const routes = (
               <Route path="in" element={<IndPage />} />
               <Route path="/account/settings" element={<AccountSettingsPage />} />
               <Route path="/cooperate/settings" element={<CooperateSettingsPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Route>
         </Routes>
