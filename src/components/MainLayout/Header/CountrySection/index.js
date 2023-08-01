@@ -71,15 +71,15 @@ const CountrySection = () => {
   useEffect(() => {
     if (location.pathname.toLowerCase().startsWith('/malaysia')) {
       setCountry('MY');
-      dispatch(openMenuItem('my'));
+      dispatch(openMenuItem('malaysia'));
       setSelectedIndex(0);
     } else if (location.pathname.toLowerCase().startsWith('/indonesia')) {
       setCountry('ID');
-      dispatch(openMenuItem('id'));
+      dispatch(openMenuItem('indonesia'));
       setSelectedIndex(1);
     } else if (location.pathname.toLowerCase().startsWith('/india')) {
       setCountry('IN');
-      dispatch(openMenuItem('in'));
+      dispatch(openMenuItem('india'));
       setSelectedIndex(2);
     } else {
       setCountry('');
@@ -165,7 +165,7 @@ const CountrySection = () => {
                       <ListItemButton
                         sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 0}
-                        onClick={(event) => handleListItemClick(event, 0, '/my')}
+                        onClick={(event) => handleListItemClick(event, 0, '/malaysia')}
                       >
                         <ListItemIcon>
                           <CountryFlag countryCode="MY" />
@@ -175,7 +175,7 @@ const CountrySection = () => {
                       <ListItemButton
                         sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 1}
-                        onClick={(event) => handleListItemClick(event, 1, '/id')}
+                        onClick={(event) => handleListItemClick(event, 1, '/indonesia')}
                       >
                         <ListItemIcon>
                           <CountryFlag countryCode="ID" />
@@ -185,7 +185,7 @@ const CountrySection = () => {
                       <ListItemButton
                         sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 2}
-                        onClick={(event) => handleListItemClick(event, 2, '/in')}
+                        onClick={(event) => handleListItemClick(event, 2, '/india')}
                       >
                         <ListItemIcon>
                           <CountryFlag countryCode="IN" />

@@ -13,10 +13,11 @@ import AccountSettingsPage from './pages/account/Settings/Index';
 import LoginPage from './pages/authentication/authentication3/Login3';
 import CooperateSettingsPage from './pages/cooperate/Settings/Index';
 import HomePage from './pages/Home';
-import IdnPage from './pages/idn/Index';
-import IndPage from './pages/ind/Index';
 import IndexPage from './pages/Index';
-import MysPage from './pages/mys/Index';
+import IndPage from './pages/india/Index';
+import IdnPage from './pages/indonesia/Index';
+import MysPage from './pages/malaysia/Index';
+import MyRequests from './pages/malaysia/Requests';
 import NotFoundPage from './pages/NotFoundPage';
 
 import 'assets/scss/style.scss';
@@ -32,9 +33,10 @@ const routes = (
           <Route element={<AuthLayout />}>
             <Route element={<MainLayout />}>
               <Route path="home" element={<HomePage />} />
-              <Route path="my" element={<MysPage />} />
-              <Route path="id" element={<IdnPage />} />
-              <Route path="in" element={<IndPage />} />
+              <Route path="malaysia" element={<MysPage />} />
+              <Route path="/malaysia/requests" element={<MyRequests />} />
+              <Route path="indonesia" element={<IdnPage />} />
+              <Route path="india" element={<IndPage />} />
               <Route path="/account/settings" element={<AccountSettingsPage />} />
               <Route path="/cooperate/settings" element={<CooperateSettingsPage />} />
               <Route path="*" element={<NotFoundPage />} />

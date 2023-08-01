@@ -11,8 +11,6 @@ const icons = {
 
 const pages = {
   id: 'pages',
-  // title: 'RFIs',
-  // caption: 'Request for Information',
   type: 'group',
   children: [
     {
@@ -22,11 +20,10 @@ const pages = {
       icon: icons.FlagMY,
       children: [
         {
-          id: 'my',
-          title: 'All RFIs',
+          id: 'all-requests',
+          title: 'All Requests',
           type: 'item',
-          url: '/my',
-          // target: true
+          url: '/malaysia/requests',
         },
       ],
     },
@@ -55,7 +52,7 @@ const pages = {
           id: 'in',
           title: 'Coming soon',
           type: 'item',
-          url: '/in',
+          url: '/india',
           // target: true
         },
       ],

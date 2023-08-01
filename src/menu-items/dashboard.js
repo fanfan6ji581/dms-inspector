@@ -1,4 +1,4 @@
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import HomeIcon from '@mui/icons-material/Home';
 
 const dashboard = {
   id: 'home',
@@ -10,7 +10,7 @@ const dashboard = {
       title: 'Home',
       type: 'item',
       url: '/home',
-      icon: DashboardIcon,
+      icon: HomeIcon,
       breadcrumbs: false,
     },
   ],
