@@ -17,6 +17,7 @@ import IndexPage from './pages/Index';
 import IndPage from './pages/india/Index';
 import IdnPage from './pages/indonesia/Index';
 import MysPage from './pages/malaysia/Index';
+import MyRequest from './pages/malaysia/Request/Index';
 import MyRequests from './pages/malaysia/Requests';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -35,6 +36,7 @@ const routes = (
               <Route path="home" element={<HomePage />} />
               <Route path="malaysia" element={<MysPage />} />
               <Route path="/malaysia/requests" element={<MyRequests />} />
+              <Route path="/malaysia/requests/:id" element={<MyRequest />} />
               <Route path="indonesia" element={<IdnPage />} />
               <Route path="india" element={<IndPage />} />
               <Route path="/account/settings" element={<AccountSettingsPage />} />
