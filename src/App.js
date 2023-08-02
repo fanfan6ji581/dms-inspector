@@ -11,7 +11,6 @@ import AuthProvider from './components/AuthProvider';
 import MainLayout from './components/MainLayout';
 import AccountSettingsPage from './pages/account/Settings/Index';
 import LoginPage from './pages/authentication/authentication3/Login3';
-import CooperateSettingsPage from './pages/cooperate/Settings/Index';
 import HomePage from './pages/Home';
 import IndexPage from './pages/Index';
 import IndPage from './pages/india/Index';
@@ -40,7 +39,6 @@ const routes = (
               <Route path="indonesia" element={<IdnPage />} />
               <Route path="india" element={<IndPage />} />
               <Route path="/account/settings" element={<AccountSettingsPage />} />
-              <Route path="/cooperate/settings" element={<CooperateSettingsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Route>

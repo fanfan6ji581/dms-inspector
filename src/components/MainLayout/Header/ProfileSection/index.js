@@ -177,16 +177,6 @@ const ProfileSection = () => {
                     >
                       <ListItemButton
                         sx={{ borderRadius: '12px' }}
-                        selected={selectedIndex === 0}
-                        onClick={(event) => handleListItemClick(event, 0, '/cooperate/settings')}
-                      >
-                        <ListItemIcon>
-                          <BusinessIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={<Typography variant="body2">Cooperate Settings</Typography>} />
-                      </ListItemButton>
-                      <ListItemButton
-                        sx={{ borderRadius: '12px' }}
                         selected={selectedIndex === 1}
                         onClick={(event) => handleListItemClick(event, 1, '/account/settings')}
                       >

@@ -1,8 +1,10 @@
+import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
+import SignaturePad from 'react-signature-pad-wrapper';
 import * as Yup from 'yup';
 
-import { Button, Grid, TextField } from '@mui/material';
+import { Box, Button, Grid, TextField } from '@mui/material';
 
 import { inspectorS, login } from '../../../reducers/authSlice';
 import { hideLoading, showLoading, showMessage } from '../../../reducers/layoutSlice';
@@ -11,6 +13,7 @@ import axios from '../../../utils/axios';
 const Profile = () => {
   const dispatch = useDispatch();
   const inspector = useSelector(inspectorS);
+  const signaturePadRef = React.createRef();
 
   const initialValues = {
     name: inspector?.name,
@@ -26,10 +29,21 @@ const Profile = () => {
     phone: Yup.string(),
   });
 
+  useEffect(() => {
+    if (inspector.signature) {
+      signaturePadRef.current.fromData(JSON.parse(inspector.signature));
+    }
+  }, []);
+
   const onSave = async (values, { resetForm }) => {
     dispatch(showLoading());
     try {
-      const { data } = await axios.put('/account/profile', values);
+      const { data } = await axios.put(
+        '/account/profile',
+        Object.assign({}, values, {
+          signature: JSON.stringify(signaturePadRef.current.toData()),
+        })
+      );
       // update login inspector name
       dispatch(login(data));
       dispatch(showMessage('Profile updated successful'));
@@ -104,6 +118,19 @@ const Profile = () => {
                   />
                 </Grid>
                 <Grid item xs={12} sx={{ mt: 1 }}>
+                  <Box sx={{ border: '1px solid #ced4da', width: 400, height: 200, borderRadius: 4 }}>
+                    <SignaturePad options={{ width: 400, height: 200 }} redrawOnResize ref={signaturePadRef} />
+                  </Box>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{ mt: 1 }}
+                    onClick={() => signaturePadRef.current.clear()}
+                  >
+                    Clear
+                  </Button>
+                </Grid>
+                <Grid item xs={12} sx={{ mt: 3 }}>
                   <Button variant="outlined" size="large" type="submit" disabled={isSubmitting}>
                     Save
                   </Button>
