@@ -42,7 +42,7 @@ const StatusTimeline = ({ request }) => {
         </TimelineContent>
       </TimelineItem>
 
-      {/* <TimelineItem>
+      <TimelineItem>
         <TimelineOppositeContent>
           <Stack>
             <Typography variant="h5">Arranged</Typography>
@@ -71,7 +71,7 @@ const StatusTimeline = ({ request }) => {
             </Stack>
           )}
         </TimelineContent>
-      </TimelineItem> */}
+      </TimelineItem>
 
       <TimelineItem>
         <TimelineOppositeContent>
