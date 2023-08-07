@@ -452,12 +452,22 @@ const RequestDetail = ({ setTabIndex }) => {
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="subtitle1" color="grey">
-                    Shipper's Ref No:
+                    Exporter's Ref No:
                   </Typography>
                   <Typography variant="body1" sx={{ pt: 0.375 }}>
-                    {request.shipperRef}
+                    {request.exporterRef}
                   </Typography>
                 </Stack>
+                {request.shipperRef && (
+                  <Stack direction="row" spacing={1}>
+                    <Typography variant="subtitle1" color="grey">
+                      Shipper's Ref No:
+                    </Typography>
+                    <Typography variant="body1" sx={{ pt: 0.375 }}>
+                      {request.shipperRef}
+                    </Typography>
+                  </Stack>
+                )}
                 <Stack direction="row" spacing={1}>
                   <Typography variant="subtitle1" color="grey">
                     Vessel Name:
