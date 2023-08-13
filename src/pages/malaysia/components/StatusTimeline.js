@@ -96,7 +96,7 @@ const StatusTimeline = ({ request }) => {
       <TimelineItem>
         <TimelineOppositeContent>
           <Stack>
-            <Typography variant="h5">Final Document Uploaded</Typography>
+            <Typography variant="h5">Document Uploaded</Typography>
             {request?.status?.uploaded && (
               <Typography variant="subtitle2">{dayjs(request?.status?.uploaded?.createdAt).format('MMM D')}</Typography>
             )}

@@ -17,7 +17,7 @@ const RequestStatus = () => {
   const handleDownload = async (path) => {
     try {
       dispatch(showLoading('status-download'));
-      const response = await axios.get(`/upload/zip?folderPath=${path}`, {
+      const response = await axios.get(`/download/zip?folderPath=${path}`, {
         responseType: 'blob', // Set the response type to 'blob' to handle binary data
       });
 
